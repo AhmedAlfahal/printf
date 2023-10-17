@@ -25,7 +25,7 @@ int	_printf(const char *s1, ...)
 			counter += _printf_putchr(s1[i]);
 		if (s1[i++] == '%')
 		{
-			counter += persentages(s1[i], mylist);
+			counter += _printing_detection(s1[i], mylist);
 			i++;
 		}
 	}
