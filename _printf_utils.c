@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-*	_printf_putchr - prints the character
+*	_putchr - prints the character
 *
 *	@chr: char
 *
 *	Return: the return of write function
 **/
 
-int	_printf_putchr(char chr)
+int	_putchr(char chr)
 {
 	return (write(1, &chr, 1));
 }
@@ -29,11 +29,13 @@ int	_printing_detection(char s, va_list mylist)
 
 	total = 0;
 	if (s == 'c')
-		total += _printf_putchr(((char) va_arg(mylist, int)));
+		total += _putchr(((char) va_arg(mylist, int)));
 	else if (s == 's')
 		total += _putstr(va_arg(mylist, char *));
 	else if (s == '%')
-		total += _printf_putchr('%');
+		total += _putchr('%');
+	else if (s == 'i' || s == 'd')
+		total += _putnbr(va_arg(mylist, int));
 	return (total);
 }
 
@@ -56,6 +58,39 @@ int	_putstr(char *str)
 		return (6);
 	}
 	while (*str)
-		counter += _printf_putchr(*str++);
+		counter += _putchr(*str++);
+	return (counter);
+}
+
+/**
+*	_putnbr - prints the number
+*
+*	@nb: int
+*
+*	Return: number of printed character
+**/
+
+int	_putnbr(int nb)
+{
+	int	counter;
+
+	counter = 0;
+	if (nb == -2147483648)
+	{
+		counter += _putnbr(nb / 10);
+		counter += _putchr('8');
+	}
+	else if (nb >= 10)
+	{
+		counter += _putnbr(nb / 10);
+		counter += _putchr((nb % 10) + '0');
+	}
+	else if (nb < 0)
+	{
+		counter += _putchr('-');
+		counter += _putnbr(nb / -1);
+	}
+	else
+		counter += _putchr(nb + '0');
 	return (counter);
 }
