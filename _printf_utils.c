@@ -36,6 +36,10 @@ int	_printing_detection(char s, va_list mylist)
 		total += _putchr('%');
 	else if (s == 'i' || s == 'd')
 		total += _putnbr(va_arg(mylist, int));
+	else if (s == 'x')
+		total += _hexa(va_arg(mylist, unsigned int), 'W');
+	else if (s == 'X')
+		total += _hexa(va_arg(mylist, unsigned int), '7');
 	return (total);
 }
 
@@ -58,7 +62,22 @@ int	_putstr(char *str)
 		return (6);
 	}
 	while (*str)
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			write(1, "\\", 1);
+			write(1, "x", 1);
+			counter = counter + 2;
+			if (*str < 16)
+			{
+				write(1, "0", 1);
+				counter++;
+			}
+			counter = counter + _hexa(*str, '7');
+		}
+
 		counter += _putchr(*str++);
+	}
 	return (counter);
 }
 
@@ -92,5 +111,31 @@ int	_putnbr(int nb)
 	}
 	else
 		counter += _putchr(nb + '0');
+	return (counter);
+}
+
+/**
+*	_hexa - prints string
+*
+*	@nb: unsigned int
+*
+*	@base: int 
+*
+*	Return: number of printed character
+**/
+
+int	_hexa(unsigned int nb, int base)
+{
+	int				tmp;
+	int				counter;
+
+	counter = 0;
+	if (nb > 15)
+		counter += _hexa(nb / 16, base);
+	tmp = nb % 16;
+	if (tmp < 10)
+		counter += _putchr(tmp + '0');
+	else if (tmp >= 10)
+		counter += _putchr(tmp + base);
 	return (counter);
 }

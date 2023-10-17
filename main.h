@@ -9,5 +9,6 @@ int	_putchr(char chr);
 int	_putstr(char *str);
 int	_printing_detection(char s, va_list mylist);
 int	_putnbr(int nb);
+int	_hexa(unsigned int nb, int base);
 
 #endif
