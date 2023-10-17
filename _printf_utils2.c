@@ -31,15 +31,15 @@ int	_putunbr(unsigned long nb)
 *	Return: number of printed character
 **/
 
-int	_binary(unsigned int v)
+int	_binary(unsigned int v, int base)
 {
 	int		n;
 	char	c;
 
 	n = 0;
-	if (v > 1)
-		n += _binary(v / 2);
-	c = (v % 2) + '0';
+	if (v > base - 1)
+		n += _binary(v / base, base);
+	c = (v % base) + '0';
 	n += _putchr(c);
 	return (n);
 }

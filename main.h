@@ -11,6 +11,6 @@ int	_printing_detection(char s, va_list mylist);
 int	_putnbr(int nb);
 int	_hexa(unsigned int nb, int base);
 int	_putunbr(unsigned long nb);
-int	_binary(unsigned int v);
+int	_binary(unsigned int v, int base);
 
 #endif
