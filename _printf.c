@@ -1,6 +1,29 @@
 #include "main.h"
 
 /**
+*	_strchr - find something inside the code
+*
+*	@s: string to set
+*
+*	@c: character to find in string
+*
+*	Return: pointer to the char
+**/
+
+char	*_strchr(char *s, char c)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return (s);
+		s++;
+	}
+	if (*s == c)
+		return (s);
+	return (0);
+}
+
+/**
 *	_printf - memic the funtion from the standard library (printf)
 *
 *	@format: char *
@@ -9,30 +32,36 @@
 **/
 
 
-int _printf(const char *format, ...)
+int	_printf(const char *format, ...)
 {
-	va_list	mylist;
+	va_list	atached_arg;
+	char	*p;
+	char	*cases;
 	int		i;
-	int		counter;
+	int		n;
 
 	if (!format)
 		return (-1);
-	i = 0;
-	counter = 0;
-	va_start(mylist, format);
-	while (format[i])
+	p = (char *)format;
+	cases = "csdibuoxXpRrS%";
+	i = -1;
+	n = 0;
+	va_start(atached_arg, format);
+	while (p[++i])
 	{
-		if (format[i] != '%')
-			counter += _putchr(format[i], 0);
-		else if (format[i++] == '%')
+		if (p[i] == '%' && _strchr(cases, p[i + 1]))
 		{
-			counter += _printing_detection(format[i], mylist);
-			if (format[i] == 0)
-				break;
 			i++;
-			continue;
+			if (!p[i])
+				return (-1);
+			n += _printing_detection(p[i], atached_arg);
+		}
+		else
+		{
+			write(1, &p[i], 1);
+			n++;
 		}
 	}
-	va_end(mylist);
-	return (counter);
+	va_end(atached_arg);
+	return (n);
 }
