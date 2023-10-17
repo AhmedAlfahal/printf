@@ -9,8 +9,7 @@
  */
 int main(void)
 {
-	char *s = NULL;
-	int j =_printf("[%R]\n", s);
+	int j = _printf(NULL);
 	printf("original:	%d\n", j);
     return (0);
 }

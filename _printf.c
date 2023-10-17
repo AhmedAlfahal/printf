@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 	int		i;
 	int		counter;
 
+	if (!format)
+		return (-1);
 	i = 0;
 	counter = 0;
 	va_start(mylist, format);
