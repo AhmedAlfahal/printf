@@ -33,10 +33,13 @@ int	_putunbr(unsigned long nb)
 
 int	_binary(unsigned int v)
 {
-	int i = 0;
-	int total = 0;
+	int		n;
+	char	c;
 
-	for (i = 6; i >= 0; i--)
-		total += _putchr('0' + ((v >> i) & 1));
-	return (total);
+	n = 0;
+	if (v > 1)
+		n += _binary(v / 2);
+	c = (v % 2) + '0';
+	n += _putchr(c);
+	return (n);
 }
