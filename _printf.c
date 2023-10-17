@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 			counter += _printing_detection(format[i], mylist);
 			i++;
 		}
-		i++;
 	}
 	va_end(mylist);
 	return (counter);
