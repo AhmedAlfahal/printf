@@ -40,6 +40,8 @@ int	_printing_detection(char s, va_list mylist)
 		total += _hexa(va_arg(mylist, unsigned int), 'W');
 	else if (s == 'X')
 		total += _hexa(va_arg(mylist, unsigned int), '7');
+	else if (s == 'u')
+		total += _putunbr(va_arg(mylist, unsigned int));
 	return (total);
 }
 
