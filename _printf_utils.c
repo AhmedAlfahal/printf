@@ -119,7 +119,7 @@ int	_putnbr(int nb)
 *
 *	@nb: unsigned int
 *
-*	@base: int 
+*	@base: int
 *
 *	Return: number of printed character
 **/
