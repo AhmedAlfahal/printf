@@ -10,8 +10,7 @@
 
 int	_printf_putchr(char chr)
 {
-	write(1, &chr, 1);
-	return (1);
+	return (write(1, &chr, 1));
 }
 
 /**
@@ -53,7 +52,7 @@ int	_putstr(char *str)
 	counter = 0;
 	if (str == NULL)
 	{
-		write(1, "(nil)", 6);
+		write(1, "(null)", 7);
 		return (6);
 	}
 	while (*str)
