@@ -10,8 +10,7 @@
 int main(void)
 {
 	char *s = "Hello";
-	int j =_printf("[%p]\n", s);
-	int i = printf("[%p]\n", s);
-	printf("original:	%d\nmine:		%d\n", i, j);
+	int j =_printf("[%r]\n", s);
+	printf("original:	%d\n", j);
     return (0);
 }

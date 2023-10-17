@@ -64,3 +64,24 @@ int	_pointer(unsigned long p)
 	n += _hexa(p, 'W');
 	return (n);
 }
+
+/**
+*	_rev - prints string reversing
+*
+*	@p: char *
+*
+*	Return: number of printed character
+**/
+
+int	_rev(char *p)
+{
+	int n = 0;
+
+	if (*p == 0)
+		return (0);
+	if (!p)
+		return (write(1, "(null)", 6));
+	n += _rev(p + 1);
+	n += write(1, p, 1);
+	return (n);
+}

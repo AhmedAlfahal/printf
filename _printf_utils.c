@@ -48,6 +48,8 @@ int	_printing_detection(char s, va_list mylist)
 		total += _binary(va_arg(mylist, unsigned int), 8);
 	else if (s == 'p')
 		total += _pointer(va_arg(mylist, unsigned long));
+	else if (s == 'r')
+		total += _rev(va_arg(mylist, char *));
 	return (total);
 }
 

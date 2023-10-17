@@ -13,5 +13,7 @@ int	_hexa(unsigned long nb, int base);
 int	_putunbr(unsigned long nb);
 int	_binary(unsigned int v, unsigned int base);
 int	_pointer(unsigned long p);
+int	_rev(char *p);
+
 
 #endif
