@@ -31,7 +31,7 @@ int	_putunbr(unsigned long nb)
 *	Return: number of printed character
 **/
 
-int	_binary(unsigned int v, int base)
+int	_binary(unsigned int v, unsigned int base)
 {
 	int		n;
 	char	c;
