@@ -46,6 +46,8 @@ int	_printing_detection(char s, va_list mylist)
 		total += _binary(va_arg(mylist, unsigned int), 2);
 	else if (s == 'o')
 		total += _binary(va_arg(mylist, unsigned int), 8);
+	else if (s == 'p')
+		total += _pntr(va_arg(mylist, unsigned int));
 	return (total);
 }
 

@@ -43,3 +43,19 @@ int	_binary(unsigned int v, unsigned int base)
 	n += _putchr(c);
 	return (n);
 }
+
+int	_pntr(unsigned long nb)
+{
+	int	tmp;
+	int	counter;
+
+	counter = 0;
+	if (nb > 15)
+		counter += _pntr(nb / 16);
+	tmp = nb % 16;
+	if (tmp < 10)
+		counter += _putchr(tmp + '0');
+	else if (tmp >= 10)
+		counter += _putchr(tmp + 'W');
+	return (counter);
+}

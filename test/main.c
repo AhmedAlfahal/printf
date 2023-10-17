@@ -9,7 +9,8 @@
  */
 int main(void)
 {
-	int j =_printf("%b\n", 98);
-	printf("original:	%d\n",  j);
+	int j =_printf("[%%%s%c]\n", "ahmed", 'v');
+	int i = printf("[%%%s%c]\n", "ahmed", 'v');
+	printf("original:	%d\nmine:		%d\n", i, j);
     return (0);
 }
