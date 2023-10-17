@@ -27,7 +27,10 @@ int _printf(const char *format, ...)
 		else if (format[i++] == '%')
 		{
 			counter += _printing_detection(format[i], mylist);
+			if (format[i] == 0)
+				break;
 			i++;
+			continue;
 		}
 	}
 	va_end(mylist);
