@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 			counter += _putchr(format[i], 0);
-		if (format[i] == '%')
+		if (format[i++] == '%')
 		{
 			counter += _printing_detection(format[i], mylist);
 			i++;
