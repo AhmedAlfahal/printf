@@ -1,5 +1,4 @@
-#include "_printf.h"
-
+#include "main.h"
 
 /**
 *	_printf - memic the funtion from the standard library (printf)

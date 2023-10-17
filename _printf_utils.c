@@ -1,4 +1,4 @@
-#include "_printf.h"
+#include "main.h"
 
 /**
 *	_printf_putchr - prints the character
