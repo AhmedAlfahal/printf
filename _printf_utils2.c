@@ -22,3 +22,21 @@ int	_putunbr(unsigned long nb)
 		counter += _putchr(nb + '0');
 	return (counter);
 }
+
+/**
+*	_binary - prints binary
+*
+*	@v: unsigned char
+*
+*	Return: number of printed character
+**/
+
+int	_binary(unsigned int v)
+{
+	int i = 0;
+	int total = 0;
+
+	for (i = 7; i >= 0; i--)
+		total += _putchr('0' + ((v >> i) & 1));
+	return (total);
+}

@@ -9,8 +9,7 @@
  */
 int main(void)
 {
-	int j =_printf("[%u]\n", UINT_MAX);
-	int i = printf("[%u]\n", UINT_MAX);
-	printf("original:	%d\nmine:		%d\n", i, j);
+	int j =_printf("[%b]\n", 4);
+	printf("original:	%d\n",  j);
     return (0);
 }
