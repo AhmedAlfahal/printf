@@ -12,6 +12,6 @@ int	_putnbr(int nb);
 int	_hexa(unsigned int nb, int base);
 int	_putunbr(unsigned long nb);
 int	_binary(unsigned int v, unsigned int base);
-int	_pntr(unsigned long nb);
+int	_pointer(unsigned long p);
 
 #endif

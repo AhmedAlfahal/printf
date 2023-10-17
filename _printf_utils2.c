@@ -43,3 +43,14 @@ int	_binary(unsigned int v, unsigned int base)
 	n += _putchr(c);
 	return (n);
 }
+
+int	_pointer(unsigned long p)
+{
+	int	n;
+
+	if (p == 0)
+		return (_putstr("(nil)"));
+	n = _putstr("0x");
+	n += _hexa(p, 'W');
+	return (n);
+}
