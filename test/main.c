@@ -9,7 +9,8 @@
  */
 int main(void)
 {
-	int j = _printf(NULL);
-	printf("original:	%d\n", j);
+	int j = _printf("1");
+	int i = _printf("1");
+	printf("original:	%d\nmine:		%d\n", i, j);
     return (0);
 }

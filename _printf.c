@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 	va_start(mylist, format);
 	while (format[i] != 0)
 	{
+		if (!format[i])
+			return (-1);
 		if (format[i] != '%')
 			counter += _putchr(format[i], 0);
 		if (format[i++] == '%')
