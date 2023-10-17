@@ -9,8 +9,9 @@
  */
 int main(void)
 {
-	int j =_printf("%x	%X	%X\n", 1, 12, 123456789);
-	int i = printf("%x	%X	%X\n", 1, 12, 123456789);
+	char *s = NULL;
+	int j =_printf(" %s\n", s);
+	int i = printf(" %s\n", s);
 	printf("%d	%d\n", i, j);
     return (0);
 }

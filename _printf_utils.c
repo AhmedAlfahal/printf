@@ -46,39 +46,20 @@ int	_printing_detection(char s, va_list mylist)
 /**
 *	_putstr - prints string
 *
-*	@s: char *
+*	@str: char *
 *
 *	Return: number of printed character
 **/
 
-int _putstr(char *s)
+int	_putstr(char *str)
 {
+	int	counter = 0;
 
-	int i, l = 0;
-	int c;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		if (s[i] < 32 || s[i] >= 127)
-		{
-			write(1, "\\", 1);
-			write(1, "x", 1);
-			l = l + 2;
-			c = s[i];
-			if (c < 16)
-			{
-				write(1, "0", 1);
-				l++;
-			}
-			l = l + _hexa(c, 'W');
-		}
-		else
-		{
-			write(1, &s[i], 1);
-			l++;
-		}
-	}
-	return (l);
+	if (!str)
+		return (write(1, "(null)", 6));
+	while (*str)
+		counter += _putchr(*str++);
+	return (counter);
 }
 
 /**
@@ -91,9 +72,8 @@ int _putstr(char *s)
 
 int	_putnbr(int nb)
 {
-	int	counter;
+	int	counter = 0;
 
-	counter = 0;
 	if (nb == -2147483648)
 	{
 		counter += _putnbr(nb / 10);
