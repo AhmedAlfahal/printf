@@ -28,6 +28,8 @@ int	_putunbr(unsigned long nb)
 *
 *	@v: unsigned char
 *
+*	@base: unsigned int
+*
 *	Return: number of printed character
 **/
 
@@ -43,6 +45,14 @@ int	_binary(unsigned int v, unsigned int base)
 	n += _putchr(c);
 	return (n);
 }
+
+/**
+*	_pointer - prints pointers
+*
+*	@p: unsigned long
+*
+*	Return: number of printed character
+**/
 
 int	_pointer(unsigned long p)
 {

@@ -47,7 +47,7 @@ int	_printing_detection(char s, va_list mylist)
 	else if (s == 'o')
 		total += _binary(va_arg(mylist, unsigned int), 8);
 	else if (s == 'p')
-		total += _pointer(va_arg(mylist, unsigned int));
+		total += _pointer(va_arg(mylist, unsigned long));
 	return (total);
 }
 
@@ -112,7 +112,7 @@ int	_putnbr(int nb)
 *	Return: number of printed character
 **/
 
-int	_hexa(unsigned int nb, int base)
+int	_hexa(unsigned long nb, int base)
 {
 	int				tmp;
 	int				counter;

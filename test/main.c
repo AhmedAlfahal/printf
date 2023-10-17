@@ -9,8 +9,9 @@
  */
 int main(void)
 {
-	int j =_printf("[%%%s%c]\n", "ahmed", 'v');
-	int i = printf("[%%%s%c]\n", "ahmed", 'v');
+	char *s = "Hello";
+	int j =_printf("[%p]\n", s);
+	int i = printf("[%p]\n", s);
 	printf("original:	%d\nmine:		%d\n", i, j);
     return (0);
 }
