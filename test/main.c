@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int j =_printf("[%b]\n", 4);
+	int j =_printf("%b\n", 98);
 	printf("original:	%d\n",  j);
     return (0);
 }

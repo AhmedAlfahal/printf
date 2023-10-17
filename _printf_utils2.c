@@ -36,7 +36,7 @@ int	_binary(unsigned int v)
 	int i = 0;
 	int total = 0;
 
-	for (i = 7; i >= 0; i--)
+	for (i = 6; i >= 0; i--)
 		total += _putchr('0' + ((v >> i) & 1));
 	return (total);
 }
