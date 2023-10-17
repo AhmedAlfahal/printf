@@ -46,39 +46,39 @@ int	_printing_detection(char s, va_list mylist)
 /**
 *	_putstr - prints string
 *
-*	@str: char *
+*	@s: char *
 *
 *	Return: number of printed character
 **/
 
-int	_putstr(char *str)
+int _putstr(char *s)
 {
-	int	counter;
 
-	counter = 0;
-	if (str == NULL)
+	int i, l = 0;
+	int c;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		write(1, "(null)", 7);
-		return (6);
-	}
-	while (*str)
-	{
-		if (*str < 32 || *str >= 127)
+		if (s[i] < 32 || s[i] >= 127)
 		{
 			write(1, "\\", 1);
 			write(1, "x", 1);
-			counter = counter + 2;
-			if (*str < 16)
+			l = l + 2;
+			c = s[i];
+			if (c < 16)
 			{
 				write(1, "0", 1);
-				counter++;
+				l++;
 			}
-			counter = counter + _hexa(*str, '7');
+			l = l + _hexa(c, 'W');
 		}
-
-		counter += _putchr(*str++);
+		else
+		{
+			write(1, &s[i], 1);
+			l++;
+		}
 	}
-	return (counter);
+	return (l);
 }
 
 /**
