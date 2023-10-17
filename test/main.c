@@ -9,8 +9,8 @@
  */
 int main(void)
 {
-	int j = _printf("1");
-	int i = _printf("1");
+	int j = _printf("%%%");
+	int i = _printf("%%%");
 	printf("original:	%d\nmine:		%d\n", i, j);
     return (0);
 }

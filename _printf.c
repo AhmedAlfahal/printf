@@ -20,17 +20,13 @@ int _printf(const char *format, ...)
 	i = 0;
 	counter = 0;
 	va_start(mylist, format);
-	while (format[i] != 0)
+	while (format[i])
 	{
-		if (!format[i])
-			return (-1);
 		if (format[i] != '%')
 			counter += _putchr(format[i], 0);
-		if (format[i++] == '%')
-		{
+		else if (format[i] == '%')
 			counter += _printing_detection(format[i], mylist);
-			i++;
-		}
+		i++;
 	}
 	va_end(mylist);
 	return (counter);
